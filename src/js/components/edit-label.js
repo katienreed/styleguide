@@ -6,11 +6,10 @@ import Colors from '../../lib/_colors.json';
 import OutsideClick from './mixins/outside-click';
 
 const {
-  createClass,
   PropTypes: Type
 } = React;
 
-export default createClass({
+export default React.createClass({
   displayName: 'EditLabel',
 
   mixins: [OutsideClick],

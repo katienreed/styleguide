@@ -6,7 +6,7 @@ const {
   PropTypes : Type
 } = React;
 
-export default createClass({
+export default React.createClass({
   displayName: 'FieldError',
 
   propTypes: {

@@ -1,14 +1,13 @@
 import React from 'react/addons';
 
 const {
-  createClass,
   Children,
   PropTypes : Type
 } = React;
 
 const { cloneWithProps } = React.addons;
 
-export default createClass({
+export default React.createClass({
   displayName: "FileInput",
 
   getInitialState() {
