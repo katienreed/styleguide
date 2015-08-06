@@ -1,0 +1,19 @@
+for component, path in public.docs._data
+  article
+    h1= component.displayName
+    p= path
+    if component.props
+      table
+        thead
+          tr
+            th
+              Prop
+            th
+              Description
+        tbody
+          for prop, name in component.props
+            tr
+              td= name
+              if prop.type && prop.type.name
+                td= prop.type.name 
+    hr
