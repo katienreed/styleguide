@@ -1,19 +1,41 @@
 for component, path in public.docs._data
   article
+    small= path
     h1= component.displayName
-    p= path
+    if component.description.length > 0
+      p= component.description
     if component.props
+      h2= "Props"
       table
         thead
           tr
-            th
-              Prop
-            th
-              Description
+            th= "Name"
+            th= "Type"
+            th= "Value"
+            th= "Default Value"
+            th= "Required"
         tbody
           for prop, name in component.props
             tr
               td= name
               if prop.type && prop.type.name
                 td= prop.type.name 
+                if prop.type.value
+                  if prop.type.value.name
+                    td= prop.type.value.name
+                  else
+                    td
+                      ul
+                        for val in prop.type.value
+                          li= val.value
+                else
+                  td= "N/A"
+                if prop.defaultValue
+                  td= prop.defaultValue.value
+                else
+                  td= "N/A"
+                if prop.required
+                  td= "True"
+                else
+                  td= "False"
     hr

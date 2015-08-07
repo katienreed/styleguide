@@ -2,6 +2,9 @@ import React from 'react';
 
 const Type = React.PropTypes;
 
+/**
+ * A container component to layout a group of Buttons
+ */
 export default React.createClass({
   displayName: "ButtonGroup",
 

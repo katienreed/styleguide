@@ -1,6 +1,6 @@
 {
   "src/js/components/buttons/button-group.js": {
-    "description": "",
+    "description": "A container component to layout a group of Buttons",
     "displayName": "ButtonGroup",
     "props": {
       "type": {
