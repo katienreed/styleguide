@@ -7,7 +7,7 @@ const {
   PropTypes : Type
 } = React;
 
-export default {
+var OutsideClickMixin = {
 
   componentDidMount() {
     window.addEventListener('click', this._handleDocumentClick);
@@ -32,3 +32,5 @@ export default {
     }
   }
 }
+
+export default OutsideClickMixin;
