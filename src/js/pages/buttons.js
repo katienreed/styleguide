@@ -2,6 +2,7 @@ import React from 'react';
 import Styleguide from '../styleguide';
 import Button from '../components/buttons/button';
 import ButtonGroup from '../components/buttons/button-group';
+import PropsTable from '../style_guide_components/props-table';
 
 export default React.createClass({
   displayName: "ButtonsPage",
@@ -12,6 +13,44 @@ export default React.createClass({
 
   render() {
     return <Styleguide title="Button Styles">
+      <div title="Button Styles" description="The button styles for Namely.">
+        <PropsTable rows={
+          [
+            {
+              'prop':'Type',
+              'description':'Sets the color of the button. Default: null.'
+            },
+            {
+              'prop':'Label',
+              'description':'sets the text for the content inside the button. Default: null.'
+            },
+            {
+              'prop':'Size',
+              'description':'Sets the size of the button. Default: null.'
+            },
+
+            {
+              'prop':'Disabled',
+              'description':'Renders the button grey and unclickable. Default: false.'
+            },
+
+            {
+              'prop':'Link',
+              'description':'Attaches a link to the button. Default: false.'
+            },
+
+            {
+              'prop':'Icon',
+              'description':'Attaches an icon to the button. Default: null.'
+            },
+
+            {
+              'prop':'extraClasses',
+              'description':'?'
+            }
+          ]
+        }/>
+      </div>
 
       <div title="Base" description="The button styles for Namely app">
         <Button label="Base" onClick={this._logClick} />
