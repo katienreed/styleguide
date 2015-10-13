@@ -1,6 +1,5 @@
 import React from 'react';
 import Styleguide from '../styleguide';
-import Select from 'react-select';
 import DateField from '../components/forms/fields/date';
 import NumberField from '../components/forms/fields/number';
 import TextField from '../components/forms/fields/text';
@@ -10,6 +9,11 @@ import Radio from '../components/forms/fields/radio';
 import SimpleSelect from '../components/forms/fields/simple-select';
 import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
+import Select from '../components/forms/fancy-select';
+import SingleValue from '../components/forms/single-value';
+import Value from '../components/forms/value';
+
+
 
 var options = [
     { value: 'london', label: 'London' },
@@ -140,7 +144,7 @@ export default React.createClass({
           <hr />
           <h3>EditLabel</h3>
           <p>An interactive component for changing the text of a label, i.e. Folder Names.</p>
-          <EditLabel 
+          <EditLabel
             label={this.state.editLabel}
             placeholder="Folder Name"
             onSave={this._onSave}
@@ -150,13 +154,13 @@ export default React.createClass({
           >
             <p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>
           </EditLabel>
-          
+
           <pre><code className="language-javascript overflow-scroll mt3">
           {'<EditLabel label={this.state.editLabel} placeholder="Folder Name" onSave={this._onSave} onDelete={this._onDelete} isValid={this._validate} errorMessage="Folder Name Already In Use" >\n'}
           {'\t<p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>\n'}
           {'</EditLabel>'}
           </code></pre>
-          
+
           <h3 className="mt4">File Input</h3>
           <p className="small">An interactive file component with file name preview.</p>
           <FileInput labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
@@ -164,6 +168,3 @@ export default React.createClass({
       </Styleguide>
   }
 });
-
-
-

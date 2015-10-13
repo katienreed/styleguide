@@ -19,7 +19,7 @@ exports['default'] = _react2['default'].createClass({
   propTypes: {
     isOpen: Type.bool,
     title: Type.node.isRequired,
-    isLast: Type.bool
+    containerClasses: Type.arrayOf(Type.string)
   },
 
   getDefaultProps: function getDefaultProps() {
@@ -59,24 +59,14 @@ exports['default'] = _react2['default'].createClass({
 
   contentClasses: function contentClasses() {
     var classes = [];
-    this.state.isOpen ? classes.push('is_open') : classes.push('is_closed', 'overflow-hidden');
-    return classes.join(' ');
-  },
-
-  containerClasses: function containerClasses() {
-    var classes = ['bt', 'bw-1', 'bc-blue-baby', 'px2'];
-
-    if (this.props.isLast) {
-      classes.push('bb');
-    }
-
+    this.state.isOpen ? classes.push('is-open') : classes.push('is-closed', 'overflow-hidden');
     return classes.join(' ');
   },
 
   render: function render() {
     return _react2['default'].createElement(
       'div',
-      { className: this.containerClasses() },
+      { className: this.props.containerClasses.join(' ') },
       _react2['default'].createElement(
         'div',
         { className: this.headerClasses(), onClick: this.handleClick },
