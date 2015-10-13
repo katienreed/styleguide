@@ -1,15 +1,19 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var Type = _react2['default'].PropTypes;
+// var classes = require('classnames');
 
-var SingleValue = _react2['default'].createClass({
-	displayName: 'SingleValue',
+exports['default'] = _react2['default'].createClass({
+	displayName: 'single-value',
 
 	propTypes: {
 		placeholder: _react2['default'].PropTypes.string, // this is default value provided by React-Select based component
@@ -18,12 +22,17 @@ var SingleValue = _react2['default'].createClass({
 	render: function render() {
 
 		var classNames = classes('Select-placeholder', this.props.value && this.props.value.className);
-		return _react2['default'].createElement('div', {
-			className: classNames,
-			style: this.props.value && this.props.value.style,
-			title: this.props.value && this.props.value.title
-		}, this.props.placeholder);
+		return _react2['default'].createElement(
+			'div',
+			{
+				className: classNames,
+				style: this.props.value && this.props.value.style,
+				title: this.props.value && this.props.value.title
+			},
+			this.props.placeholder
+		);
 	}
 });
 
 module.exports = SingleValue;
+module.exports = exports['default'];

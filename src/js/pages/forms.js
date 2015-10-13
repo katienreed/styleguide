@@ -111,7 +111,7 @@ export default React.createClass({
             <p><a href="https://github.com/JedWatson/react-select">https://github.com/JedWatson/react-select</a></p>
             <div className="col-3 left mr2">
               <label className="px2 mb1">Default</label>
-              <FancySelect
+              <Select
                 searchable={false}
                 name="form-field-nameczXCzx"
                 options={options}
@@ -121,7 +121,7 @@ export default React.createClass({
             </div>
             <div className="col-3 left mr2">
               <label className="px2 mb1">Multi</label>
-              <FancySelect
+              <Select
                 searchable={false}
                 multi={true}
                 name="form-field-nameczXCzx"
@@ -132,7 +132,7 @@ export default React.createClass({
             </div>
             <div className="col-3 left mr2">
               <label className="px2 mb1">Searchable (like Chosen)</label>
-              <FancySelect
+              <Select
                 name="form-field-nameczXCzx"
                 options={options}
                 onChange={_onChange}

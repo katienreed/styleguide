@@ -1,7 +1,7 @@
-import React from 'React';
-var classes = require('classnames');
+import React from 'react';
+// var classes = require('classnames');
 
-export default React.createClass({
+var SingleValue = React.createClass({
   	propTypes: {
 		placeholder: React.PropTypes.string,       // this is default value provided by React-Select based component
 		value: React.PropTypes.object              // selected option

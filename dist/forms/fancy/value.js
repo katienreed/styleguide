@@ -1,14 +1,18 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var Type = _react2['default'].PropTypes;
+// var classes = require('classnames');
 
-var Value = _react2['default'].createClass({
+exports['default'] = _react2['default'].createClass({
 
 	displayName: 'Value',
 
@@ -38,31 +42,53 @@ var Value = _react2['default'].createClass({
 		}
 
 		if (!this.props.onRemove && !this.props.optionLabelClick) {
-			return _react2['default'].createElement('div', {
-				className: classes('Select-value', this.props.option.className),
-				style: this.props.option.style,
-				title: this.props.option.title
-			}, label);
+			return _react2['default'].createElement(
+				'div',
+				{
+					className: classes('Select-value', this.props.option.className),
+					style: this.props.option.style,
+					title: this.props.option.title
+				},
+				label
+			);
 		}
 
 		if (this.props.optionLabelClick) {
 
-			label = _react2['default'].createElement('a', { className: classes('Select-item-label__a', this.props.option.className),
-				onMouseDown: this.blockEvent,
-				onTouchEnd: this.props.onOptionLabelClick,
-				onClick: this.props.onOptionLabelClick,
-				style: this.props.option.style,
-				title: this.props.option.title }, label);
+			label = _react2['default'].createElement(
+				'a',
+				{ className: classes('Select-item-label__a', this.props.option.className),
+					onMouseDown: this.blockEvent,
+					onTouchEnd: this.props.onOptionLabelClick,
+					onClick: this.props.onOptionLabelClick,
+					style: this.props.option.style,
+					title: this.props.option.title },
+				label
+			);
 		}
 
-		return _react2['default'].createElement('div', { className: classes('Select-item', this.props.option.className),
-			style: this.props.option.style,
-			title: this.props.option.title }, _react2['default'].createElement('span', { className: 'Select-item-icon',
-			onMouseDown: this.blockEvent,
-			onClick: this.handleOnRemove,
-			onTouchEnd: this.handleOnRemove }, '×'), _react2['default'].createElement('span', { className: 'Select-item-label' }, label));
+		return _react2['default'].createElement(
+			'div',
+			{ className: classes('Select-item', this.props.option.className),
+				style: this.props.option.style,
+				title: this.props.option.title },
+			_react2['default'].createElement(
+				'span',
+				{ className: 'Select-item-icon',
+					onMouseDown: this.blockEvent,
+					onClick: this.handleOnRemove,
+					onTouchEnd: this.handleOnRemove },
+				'×'
+			),
+			_react2['default'].createElement(
+				'span',
+				{ className: 'Select-item-label' },
+				label
+			)
+		);
 	}
 
 });
 
 module.exports = Value;
+module.exports = exports['default'];

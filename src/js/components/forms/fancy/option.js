@@ -1,5 +1,5 @@
-import React from 'React';
-var classes = require('classnames');
+import React from 'react';
+// var classes = require('classnames');
 
 export default React.createClass({
 		propTypes: {
