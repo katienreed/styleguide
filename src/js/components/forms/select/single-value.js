@@ -1,10 +1,12 @@
 import React from 'react';
 // var classes = require('classnames');
 
+const Type = React.PropTypes;
+
 var SingleValue = React.createClass({
   	propTypes: {
-		placeholder: React.PropTypes.string,       // this is default value provided by React-Select based component
-		value: React.PropTypes.object              // selected option
+		placeholder: Type.string,       // this is default value provided by React-Select based component
+		value: Type.object              // selected option
 	},
 	render: function() {
 

@@ -1,17 +1,19 @@
 import React from 'react';
 // var classes = require('classnames');
 
+const Type = React.PropTypes;
+
 export default React.createClass({
 
 	displayName: 'Value',
 
 	propTypes: {
-		disabled: React.PropTypes.bool,                   // disabled prop passed to ReactSelect
-		onOptionLabelClick: React.PropTypes.func,         // method to handle click on value label
-		onRemove: React.PropTypes.func,                   // method to handle remove of that value
-		option: React.PropTypes.object.isRequired,        // option passed to component
-		optionLabelClick: React.PropTypes.bool,           // indicates if onOptionLabelClick should be handled
-		renderer: React.PropTypes.func                    // method to render option label passed to ReactSelect
+		disabled: Type.bool,                   // disabled prop passed to ReactSelect
+		onOptionLabelClick: Type.func,         // method to handle click on value label
+		onRemove: Type.func,                   // method to handle remove of that value
+		option: Type.object.isRequired,        // option passed to component
+		optionLabelClick: Type.bool,           // indicates if onOptionLabelClick should be handled
+		renderer: Type.func                    // method to render option label passed to ReactSelect
 	},
 
 	blockEvent: function(event) {

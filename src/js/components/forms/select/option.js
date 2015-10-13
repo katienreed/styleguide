@@ -1,15 +1,17 @@
 import React from 'react';
 // var classes = require('classnames');
 
+const Type = React.PropTypes;
+
 export default React.createClass({
 		propTypes: {
-		addLabelText: React.PropTypes.string,          // string rendered in case of allowCreate option passed to ReactSelect
-		className: React.PropTypes.string,             // className (based on mouse position)
-		mouseDown: React.PropTypes.func,               // method to handle click on option element
-		mouseEnter: React.PropTypes.func,              // method to handle mouseEnter on option element
-		mouseLeave: React.PropTypes.func,              // method to handle mouseLeave on option element
-		option: React.PropTypes.object.isRequired,     // object that is base for that option
-		renderFunc: React.PropTypes.func               // method passed to ReactSelect component to render label text
+		addLabelText: Type.string,          // string rendered in case of allowCreate option passed to ReactSelect
+		className: Type.string,             // className (based on mouse position)
+		mouseDown: Type.func,               // method to handle click on option element
+		mouseEnter: Type.func,              // method to handle mouseEnter on option element
+		mouseLeave: Type.func,              // method to handle mouseLeave on option element
+		option: Type.object.isRequired,     // object that is base for that option
+		renderFunc: Type.func               // method passed to ReactSelect component to render label text
 	},
 
 	blockEvent: function(event) {
