@@ -1,80 +1,69 @@
-import React from 'react';
+import React from 'React';
+var classes = require('classnames');
 
-const Type = React.PropTypes;
-
-var Value = React.createClass({
+export default React.createClass({
 
 	displayName: 'Value',
 
 	propTypes: {
-		disabled: React.PropTypes.bool, // disabled prop passed to ReactSelect
-		onOptionLabelClick: React.PropTypes.func, // method to handle click on value label
-		onRemove: React.PropTypes.func, // method to handle remove of that value
-		option: React.PropTypes.object.isRequired, // option passed to component
-		optionLabelClick: React.PropTypes.bool, // indicates if onOptionLabelClick should be handled
-		renderer: React.PropTypes.func // method to render option label passed to ReactSelect
+		disabled: React.PropTypes.bool,                   // disabled prop passed to ReactSelect
+		onOptionLabelClick: React.PropTypes.func,         // method to handle click on value label
+		onRemove: React.PropTypes.func,                   // method to handle remove of that value
+		option: React.PropTypes.object.isRequired,        // option passed to component
+		optionLabelClick: React.PropTypes.bool,           // indicates if onOptionLabelClick should be handled
+		renderer: React.PropTypes.func                    // method to render option label passed to ReactSelect
 	},
 
-	blockEvent(event) {
+	blockEvent: function(event) {
 		event.stopPropagation();
 	},
 
-	handleOnRemove(event) {
+	handleOnRemove: function(event) {
 		if (!this.props.disabled) {
 			this.props.onRemove(event);
 		}
 	},
 
-	render() {
+	render: function() {
 		var label = this.props.option.label;
 		if (this.props.renderer) {
 			label = this.props.renderer(this.props.option);
 		}
 
-		if (!this.props.onRemove && !this.props.optionLabelClick) {
-			return React.createElement(
-				'div',
-				{
-					className: classes('Select-value', this.props.option.className),
-					style: this.props.option.style,
-					title: this.props.option.title
-				},
-				label
+		if(!this.props.onRemove && !this.props.optionLabelClick) {
+			return (
+				<div
+					className={classes('Select-value', this.props.option.className)}
+					style={this.props.option.style}
+					title={this.props.option.title}
+				>{label}</div>
 			);
 		}
 
 		if (this.props.optionLabelClick) {
 
-			label = React.createElement(
-				'a',
-				{ className: classes('Select-item-label__a', this.props.option.className),
-					onMouseDown: this.blockEvent,
-					onTouchEnd: this.props.onOptionLabelClick,
-					onClick: this.props.onOptionLabelClick,
-					style: this.props.option.style,
-					title: this.props.option.title },
-				label
+			label = (
+				<a className={classes('Select-item-label__a', this.props.option.className)}
+					onMouseDown={this.blockEvent}
+					onTouchEnd={this.props.onOptionLabelClick}
+					onClick={this.props.onOptionLabelClick}
+					style={this.props.option.style}
+					title={this.props.option.title}>
+					{label}
+				</a>
 			);
 		}
 
-		return React.createElement(
-			'div',
-			{ className: classes('Select-item', this.props.option.className),
-				style: this.props.option.style,
-				title: this.props.option.title },
-			React.createElement(
-				'span',
-				{ className: 'Select-item-icon',
-					onMouseDown: this.blockEvent,
-					onClick: this.handleOnRemove,
-					onTouchEnd: this.handleOnRemove },
-				'×'
-			),
-			React.createElement(
-				'span',
-				{ className: 'Select-item-label' },
-				label
-			)
+		return (
+			<div className={classes('Select-item', this.props.option.className)}
+				 style={this.props.option.style}
+				 title={this.props.option.title}>
+				<span className="Select-item-icon"
+					onMouseDown={this.blockEvent}
+					onClick={this.handleOnRemove}
+					onTouchEnd={this.handleOnRemove}>&times;</span>
+				<span className="Select-item-label">{label}</span>
+			</div>
 		);
 	}
 

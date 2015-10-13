@@ -9,9 +9,10 @@ import Radio from '../components/forms/fields/radio';
 import SimpleSelect from '../components/forms/fields/simple-select';
 import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
-import Select from '../components/forms/fancy-select';
-import SingleValue from '../components/forms/single-value';
-import Value from '../components/forms/value';
+import Select from '../components/forms/fancy/select';
+import SingleValue from '../components/forms/fancy/single-value';
+import Value from '../components/forms/fancy/value';
+import Option from '../components/forms/fancy/option';
 
 
 
@@ -21,6 +22,8 @@ var options = [
     { value: 'chicago', label: 'Chicago' },
     { value: 'san_francisco', label: 'San Francisco' }
 ];
+
+
 
 function _onChange(val) {
   console.log("Selected: " + val);
