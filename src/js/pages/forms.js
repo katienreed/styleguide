@@ -9,10 +9,10 @@ import Radio from '../components/forms/fields/radio';
 import SimpleSelect from '../components/forms/fields/simple-select';
 import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
-import Select from '../components/forms/fancy/select';
-import SingleValue from '../components/forms/fancy/single-value';
-import Value from '../components/forms/fancy/value';
-import Option from '../components/forms/fancy/option';
+import Select from '../components/forms/select/select';
+import SingleValue from '../components/forms/select/single-value';
+import Value from '../components/forms/select/value';
+import Option from '../components/forms/select/option';
 
 
 

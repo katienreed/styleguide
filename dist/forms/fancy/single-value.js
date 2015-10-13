@@ -1,9 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-	value: true
-});
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
@@ -12,8 +8,8 @@ var _react2 = _interopRequireDefault(_react);
 
 // var classes = require('classnames');
 
-exports['default'] = _react2['default'].createClass({
-	displayName: 'single-value',
+var SingleValue = _react2['default'].createClass({
+	displayName: 'SingleValue',
 
 	propTypes: {
 		placeholder: _react2['default'].PropTypes.string, // this is default value provided by React-Select based component
@@ -35,4 +31,3 @@ exports['default'] = _react2['default'].createClass({
 });
 
 module.exports = SingleValue;
-module.exports = exports['default'];
