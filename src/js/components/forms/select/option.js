@@ -52,5 +52,3 @@ export default React.createClass({
 		);
 	}
 });
-
-module.exports = Option;
