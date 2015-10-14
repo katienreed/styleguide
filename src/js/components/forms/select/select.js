@@ -1,11 +1,9 @@
 import React from 'react';
-import SingleValue from '../components/forms/fancy/single-value';
-import Value from '../components/forms/fancy/value';
-import Option from '../components/forms/fancy/option';
+import SingleValue from './single-value';
+import Value from './value';
+import Option from './option';
 
 
-// var Input = require('react-input-autosize');
-// var classes = require('classnames');
 
 var requestId = 0;
 

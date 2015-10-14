@@ -1,5 +1,6 @@
 import React from 'react';
-// var classes = require('classnames');
+
+
 
 const Type = React.PropTypes;
 
