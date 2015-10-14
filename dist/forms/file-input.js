@@ -70,7 +70,7 @@ exports["default"] = createClass({
             { className: "small mb0" },
             this.state.fileName
           ),
-          _reactAddons2["default"].createElement("span", { className: "inline-block icon-delete blue-secondary small mb0 ml2", onClick: this.handleRemove })
+          _reactAddons2["default"].createElement("span", { className: "inline-block icon-delete blue-50 small mb0 ml2", onClick: this.handleRemove })
         )
       );
     } else {

@@ -24,10 +24,10 @@ export default React.createClass({
 
       if(localLinks.active(link, pathname)) {
         navItems.item(i).classList.add('bg-white');
-        navItems.item(i).classList.add('blue');
+        navItems.item(i).classList.add('blue-70');
       } else {
         navItems.item(i).classList.remove('bg-white');
-        navItems.item(i).classList.remove('blue');
+        navItems.item(i).classList.remove('blue-70');
       }
     }
   },

@@ -26,7 +26,7 @@ export default React.createClass({
           <tbody>
             <tr>
               <td>
-                <h5 className="mb0 blue">Lorem ipsum</h5>
+                <h5 className="mb0 blue-70">Lorem ipsum</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis dictum nulla, quis hendrerit felis. Suspendisse potenti</p></td>
               <td className="center">4</td>
               <td><span className='yellow'>Pending</span></td>

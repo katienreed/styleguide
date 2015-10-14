@@ -12,7 +12,7 @@ $base-button-font-size: $h4;
 button,
 .button {
   appearance: none;
-  background: $blue;
+  background: $blue-70;
   border: 0;
   border-radius: $border-radius;
   color: $white;
@@ -31,7 +31,7 @@ button,
   vertical-align: middle;
 
   &:hover, &:active {
-    background: $blue-tertiary;
+    background: $blue-80;
     text-decoration: none;
     transition: background $duration, color $duration;
   }

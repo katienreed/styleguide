@@ -47,7 +47,7 @@ exports['default'] = _react2['default'].createClass({
 
   iconClasses: function iconClasses() {
     var classes = ['mr1'];
-    this.state.isOpen ? classes.push('icon-collapse', 'blue') : classes.push('icon-expand', 'blue');
+    this.state.isOpen ? classes.push('icon-collapse', 'blue-70') : classes.push('icon-expand', 'blue-70');
     return classes.join(' ');
   },
 

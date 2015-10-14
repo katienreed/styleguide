@@ -4,14 +4,14 @@ $arrow-position: -($h2/2);
 $arrow-top: ($directional-button-height * 0.25)/2;
 
 .button-previous {
-  background: $blue-secondary;
+  background: $blue-50;
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
   margin-left: 1em;
   padding-left: $space-1;
 
   &:before {
-    background: $blue-secondary;
+    background: $blue-50;
     content: '';
     height: $arrow-dimensions;
     left: $arrow-position;
@@ -20,18 +20,18 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   }
 
   &:hover {
-    background: $blue;
+    background: $blue-70;
 
     &:before {
-      background: $blue;
+      background: $blue-70;
     }
   }
 
   &:active {
-    background: $blue-tertiary;
+    background: $blue-80;
 
     &:before {
-      background: $blue-tertiary;
+      background: $blue-80;
     }
   }
 }
@@ -43,7 +43,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   padding-right: $space-1;
 
   &:after {
-    background: $blue;
+    background: $blue-70;
     content: '';
     height: $arrow-dimensions;
     right: $arrow-position;
@@ -53,7 +53,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   &:hover {
 
     &:after {
-      background: $blue-tertiary;
+      background: $blue-80;
     }
   }
 }
@@ -84,7 +84,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   &:active {
 
     &:before, &:after {
-      background: $blue-tertiary;
+      background: $blue-80;
     }
   }
 }

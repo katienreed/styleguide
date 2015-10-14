@@ -120,7 +120,7 @@ $select-height: 3.25rem;
 
 .Select-arrow {
   @include icon(arrow-double);
-  color: $blue;
+  color: $blue-70;
   position: absolute;
   right: 10px;
   top: 9px;

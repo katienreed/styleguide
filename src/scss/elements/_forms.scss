@@ -175,8 +175,8 @@ label {
 
 // fields on white background
 .field-light {
-  background: $blue-light;
-  border: 1px solid $blue-light;
+  background: $blue-05;
+  border: 1px solid $blue-05;
 }
 
 .field-light:disabled {
@@ -343,13 +343,10 @@ label {
 }
 
 .simple-select {
-  position: relative;
-
-  .icon {
-    bottom: 0.3125rem;
-    font-size: 0.75rem;
-    pointer-events: none;
+  .option:hover {
+    background-color: $grey-5;
   }
+
 }
 
 .no-resize {

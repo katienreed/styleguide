@@ -33,7 +33,7 @@ export default React.createClass({
 
   iconClasses() {
     var classes = ['icon', 'icon-calendar', 'ml1'];
-    this.props.disabled ? classes.push('grey-25') : classes.push('blue');
+    this.props.disabled ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
   },
 

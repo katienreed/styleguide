@@ -12,7 +12,7 @@ export default React.createClass({
       let title = child.props.title.replace(" ", "-");
 
       return (
-        <li className="py1 blue">
+        <li className="py1 blue-70">
           <a href={"#" + title}>{child.props.title}</a>
         </li>
         )

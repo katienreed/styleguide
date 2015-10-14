@@ -96,7 +96,7 @@ export default createClass({
     if (saveDisabled) {
       classes.push('grey-25');
     } else {
-      classes.push('blue');
+      classes.push('blue-70');
     }
 
     return classes;
@@ -127,7 +127,7 @@ export default createClass({
 
   render() {
     if(this.state.isEditing) {
-      const textStyle = { 
+      const textStyle = {
         borderColor: this.state.hasErrors ? Colors["orange"][""] : void 0,
         height: this.state.textHeight,
         width: "auto"
@@ -145,15 +145,15 @@ export default createClass({
             ref="labelInput"
             style={textStyle}
           ></textarea>
-          <Icon 
-            name="check" 
+          <Icon
+            name="check"
             extraClasses={this._getSaveClasses()}
             onClick={this.state.saveDisabled ? void 0 : this._handleSave}
            />
           <Popup ref="pop">
-            <Icon 
-              name="delete" 
-              extraClasses={["blue", "px2", "small", "m0"]} 
+            <Icon
+              name="delete"
+              extraClasses={["blue-70", "px2", "small", "m0"]}
             />
             <div className="white">
               <h4>Are you sure?</h4>
@@ -169,8 +169,8 @@ export default createClass({
     } else {
       return (
         <div ref="wrapper" className="flex flex-center hover-container" >
-          <h3 className="blue py1 m0">{this.props.label}</h3>
-          <Icon name="pencil" ref="pencil" extraClasses={["blue", "py1", "ml1", "small", "m0", "hover-show"]} onClick={this._triggerEdit} />
+          <h3 className="blue-70 py1 m0">{this.props.label}</h3>
+          <Icon name="pencil" ref="pencil" extraClasses={["blue-70", "py1", "ml1", "small", "m0", "hover-show"]} onClick={this._triggerEdit} />
         </div>
       );
     }

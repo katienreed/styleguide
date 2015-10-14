@@ -117,7 +117,7 @@ exports['default'] = createClass({
     if (saveDisabled) {
       classes.push('grey-25');
     } else {
-      classes.push('blue');
+      classes.push('blue-70');
     }
 
     return classes;
@@ -177,7 +177,7 @@ exports['default'] = createClass({
           { ref: 'pop' },
           _react2['default'].createElement(_icon2['default'], {
             name: 'delete',
-            extraClasses: ["blue", "px2", "small", "m0"]
+            extraClasses: ["blue-70", "px2", "small", "m0"]
           }),
           _react2['default'].createElement(
             'div',
@@ -211,10 +211,10 @@ exports['default'] = createClass({
         { ref: 'wrapper', className: 'flex flex-center hover-container' },
         _react2['default'].createElement(
           'h3',
-          { className: 'blue py1 m0' },
+          { className: 'blue-70 py1 m0' },
           this.props.label
         ),
-        _react2['default'].createElement(_icon2['default'], { name: 'pencil', ref: 'pencil', extraClasses: ["blue", "py1", "ml1", "small", "m0", "hover-show"], onClick: this._triggerEdit })
+        _react2['default'].createElement(_icon2['default'], { name: 'pencil', ref: 'pencil', extraClasses: ["blue-70", "py1", "ml1", "small", "m0", "hover-show"], onClick: this._triggerEdit })
       );
     }
   }

@@ -3,12 +3,12 @@
     "":"#ffffff"
   },
   "blue": {
-    "":"#186bb7",
-    "secondary":"#4c9be6",
-    "tertiary":"#0e3e6b",
-    "baby":"#a1d2ff",
-    "light":"#eaf5ff",
-    "pastel":"#c9e1f7"
+    "95":"#13293f",
+    "80":"#0e3e6b",
+    "70":"#186bb7",
+    "50":"#009ffb",
+    "25":"#a1d2ff",
+    "05":"#eaf5ff"
   },
   "orange":{
     "":"#e05b18",

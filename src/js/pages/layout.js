@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Styleguide from '../styleguide';
 import GridBlock from '../components/grid-block';
 import Flexbox from './layout/flexbox';
@@ -84,7 +83,7 @@ export default createClass({
           <article className="mt5">
             <h3>Example: Basic Layout</h3>
             <div className="clearfix">
-              <GridBlock colClass="col-12" colContent="col-12 (Header)" /> 
+              <GridBlock colClass="col-12" colContent="col-12 (Header)" />
             </div>
             <div className="clearfix">
               <GridBlock colClass="col-3" colContent="col-3 (Sidebar)" />
@@ -100,6 +99,6 @@ export default createClass({
         </div>
       </Styleguide>
     );
-    
+
   }
 });
