@@ -856,5 +856,3 @@ export default React.createClass({
 	}
 
 });
-
-module.exports = Select;
