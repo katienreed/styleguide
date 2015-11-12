@@ -16,14 +16,15 @@ export default React.createClass({
     options: Type.oneOfType([Type.object, Type.array]).isRequired,
     placeholder: Type.string,
     value: Type.oneOfType([Type.string, Type.number]),
-    multi: Type.bool,
+    multi: Type.bool
   },
 
   getDefaultProps() {
     return {
       fieldColor: 'light',
       hasError: false,
-      onChange: function() {}
+      onChange: function() {},
+      multi: false
     };
   },
 
