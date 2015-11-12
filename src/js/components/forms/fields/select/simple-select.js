@@ -15,7 +15,8 @@ export default React.createClass({
     onChange: Type.func,
     options: Type.oneOfType([Type.object, Type.array]).isRequired,
     placeholder: Type.string,
-    value: Type.oneOfType([Type.string, Type.number])
+    value: Type.oneOfType([Type.string, Type.number]),
+    multi: Type.bool,
   },
 
   getDefaultProps() {
