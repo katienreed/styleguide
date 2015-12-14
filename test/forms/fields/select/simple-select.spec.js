@@ -5,6 +5,68 @@ import SimpleSelect from 'forms/fields/select/simple-select';
 
 describe('SimpleSelect', () => {
 
+  let options_object = {123: 'one', 456: 'two'};
+  let options_array = ['one', 'two'];
+
+  describe('#onClickValue()', () => {
+    let simple_select;
+    it('toggels state.show_options', () => {
+
+      simple_select = TestUtils.renderIntoDocument(<SimpleSelect />)
+      TestUtils.Simulate.click(simple_select.refs.simpleSelectValue)
+      expect(simple_select.state.show_options).to.be.true
+
+      simple_select = TestUtils.renderIntoDocument(<SimpleSelect />)
+      simple_select.setState({show_options: true})
+      TestUtils.Simulate.click(simple_select.refs.simpleSelectValue)
+      expect(simple_select.state.show_options).to.be.false
+
+    })
+  });
+
+  describe('#optionsObject()', () => {
+    it('returns this.props.options when an object if passed to options prop', () => {
+      let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_object}/>)
+      expect(simple_select.optionsObject()).to.deep.equal(options_object)
+    });
+    it('returns false when an array if passed to options prop', () => {
+      let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_array} />)
+      expect(simple_select.optionsObject()).to.be.false
+    });
+  });
+
+  describe('#optionsArray()', () => {
+    it('returns this.props.options when an array if passed to options prop', () => {
+      let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_array}/>)
+      expect(simple_select.optionsArray()).to.deep.equal(options_array)
+    })
+    it('returns false when an object if passed to options prop', () => {
+      let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_object} />)
+      expect(simple_select.optionsArray()).to.be.false
+    })
+  });
+
+  describe('#onClickOption()', () => {
+
+    let simple_select;
+
+    beforeEach(() => {
+      simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_object} />)
+      simple_select.setState({show_options: true})
+      let options = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'simple-select-option');
+      TestUtils.Simulate.click(options[0])
+    })
+
+    it('sets state.value to the option that was clicked', () => {
+      expect(simple_select.state.show_options).to.be.false
+    })
+
+    it('sets state.show_options back to false', () => {
+      expect(simple_select.state.show_options).to.be.false
+    })
+
+  });
+
   it('expects one option element for each option given in an options array', () => {
     let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={['one','two']}/>)
     simple_select.setState({show_options: true})
