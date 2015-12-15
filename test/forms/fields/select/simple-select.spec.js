@@ -24,16 +24,30 @@ describe('SimpleSelect', () => {
     })
   });
 
+  describe('#arrowClasses()', () => {
+     it('returns grey arrow if disabled', () => {
+       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={true}/>)
+       let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'grey-50');
+       expect(elem.length).to.equal(1)
+     })
+     it('returns blue arrow by default', () => {
+       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={false}/>)
+       let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'blue-70');
+       expect(elem.length).to.equal(1)
+     })
+   });
+
   describe('#optionsObject()', () => {
     it('returns this.props.options when an object if passed to options prop', () => {
       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_object}/>)
       expect(simple_select.optionsObject()).to.deep.equal(options_object)
-    });
+    })
     it('returns false when an array if passed to options prop', () => {
       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_array} />)
       expect(simple_select.optionsObject()).to.be.false
-    });
+    })
   });
+
 
   describe('#optionsArray()', () => {
     it('returns this.props.options when an array if passed to options prop', () => {
