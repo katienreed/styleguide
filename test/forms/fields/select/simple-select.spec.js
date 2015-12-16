@@ -16,11 +16,11 @@ describe('SimpleSelect', () => {
       simple_select = TestUtils.renderIntoDocument(<SimpleSelect onChange={callback} value={'one'} options={['one','two']}/>)
       simple_select.setState({show_options: true})
       options = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'simple-select-option');
-    });
+    })
     it('fires the onChange prop when the value changes', () => {
       TestUtils.Simulate.click(options[1]);
       expect(callback.called).to.be.true;
-    });
+    })
     it('does not fire the onChange prop when the value does not change', () => {
       TestUtils.Simulate.click(options[0]);
       expect(callback.called).to.be.false;
