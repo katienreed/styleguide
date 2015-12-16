@@ -15,12 +15,6 @@ module.exports = function(config) {
       'test/**/*.spec.js'
     ],
 
-    // list of files to exclude
-    // view component is giving me problems.  excluding for now...
-    exclude: [
-      'src/js/components/view/**/*.es6'
-    ],
-
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'test/**/*.spec.js': ['browserify'],
@@ -37,7 +31,7 @@ module.exports = function(config) {
         })
       }
     },
-    
+
     // change Karma's debug.html to the mocha web reporter
     client: {
       mocha: {
