@@ -24,6 +24,9 @@ describe('SimpleSelect', () => {
     })
   });
 
+////////////////////////////////////////////
+
+  // test for the arrow's color
   describe('#arrowClasses()', () => {
      it('returns grey arrow if disabled', () => {
        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={true}/>)
@@ -36,6 +39,36 @@ describe('SimpleSelect', () => {
        expect(elem.length).to.equal(1)
      })
    });
+
+   // test for border's color
+   describe('#valueBorderClass()', () => {
+      it('returns orange border if there is an error', () => {
+        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect hasError={true}/>)
+        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-orange bc-orange-hover');
+        expect(elem.length).to.equal(1)
+      })
+      it('returns grey-25 border if fieldColor is light', () => {
+        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect fieldColor={('light')}/>)
+        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-grey-25');
+        expect(elem.length).to.equal(1)
+      })
+      it('returns a white border color if the fieldColor is dark', () => {
+        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect fieldColor={('dark')}/>)
+        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-white');
+        expect(elem.length).to.equal(1)
+      })
+      it('returns a lighter grey border color if the field is disabled', () => {
+        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect fieldColor={('dark')} disabled={true}/>)
+        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-grey-10');
+        expect(elem.length).to.equal(1)
+      })
+    });
+
+
+
+
+
+////////////////////////////////////////////
 
   describe('#optionsObject()', () => {
     it('returns this.props.options when an object if passed to options prop', () => {
