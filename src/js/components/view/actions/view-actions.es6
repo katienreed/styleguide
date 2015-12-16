@@ -1,4 +1,4 @@
-import alt from '../../../alt';
+import alt from '../../utils/alt';
 
 export default alt.generateActions(
   'scrollWatch',
