@@ -2,11 +2,30 @@ import { expect } from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
 import React from 'react';
 import SimpleSelect from 'forms/fields/select/simple-select';
+import Sinon from 'sinon';
 
 describe('SimpleSelect', () => {
 
   let options_object = {123: 'one', 456: 'two'};
   let options_array = ['one', 'two'];
+
+  describe('#componentDidUpdate()', () => {
+    let callback, simple_select, options;
+    beforeEach(() => {
+      callback = Sinon.spy();
+      simple_select = TestUtils.renderIntoDocument(<SimpleSelect onChange={callback} value={'one'} options={['one','two']}/>)
+      simple_select.setState({show_options: true})
+      options = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'simple-select-option');
+    });
+    it('fires the onChange prop when the value changes', () => {
+      TestUtils.Simulate.click(options[1]);
+      expect(callback.called).to.be.true;
+    });
+    it('does not fire the onChange prop when the value does not change', () => {
+      TestUtils.Simulate.click(options[0]);
+      expect(callback.called).to.be.false;
+    })
+  });
 
   describe('#onClickValue()', () => {
     let simple_select;
