@@ -43,16 +43,53 @@ describe('SimpleSelect', () => {
     })
   });
 
+  describe('#arrowClasses()', () => {
+     it('returns grey arrow if disabled', () => {
+       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={true}/>)
+       let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'grey-50');
+       expect(elem.length).to.equal(1)
+     })
+     it('returns blue arrow by default', () => {
+       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={false}/>)
+       let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'blue-70');
+       expect(elem.length).to.equal(1)
+     })
+   });
+
+   describe('#valueBorderClass()', () => {
+      it('returns bc-orange border color if there is an error', () => {
+        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect hasError={true}/>)
+        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-orange bc-orange-hover');
+        expect(elem.length).to.equal(1)
+      })
+      it('returns grey-25 border color if fieldColor is light', () => {
+        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect fieldColor={('light')}/>)
+        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-grey-25');
+        expect(elem.length).to.equal(1)
+      })
+      it('returns bc-white border color if the fieldColor is dark', () => {
+        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect fieldColor={('dark')}/>)
+        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-white');
+        expect(elem.length).to.equal(1)
+      })
+      it('returns grey-10 border color if the field is disabled', () => {
+        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect fieldColor={('dark')} disabled={true}/>)
+        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-grey-10');
+        expect(elem.length).to.equal(1)
+      })
+    });
+
   describe('#optionsObject()', () => {
     it('returns this.props.options when an object if passed to options prop', () => {
       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_object}/>)
       expect(simple_select.optionsObject()).to.deep.equal(options_object)
-    });
+    })
     it('returns false when an array if passed to options prop', () => {
       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_array} />)
       expect(simple_select.optionsObject()).to.be.false
-    });
+    })
   });
+
 
   describe('#optionsArray()', () => {
     it('returns this.props.options when an array if passed to options prop', () => {
