@@ -10,5 +10,10 @@ describe('View', () => {
       expect(component.actionBar()).to.be.null
     })
 
+    it('returns null if this.state.bars.action.visible is false', () => {
+      let component = TestUtils.renderIntoDocument(<View />)
+      component.setState({bars: {action: { use: true, visible: false}}})
+      expect(component.actionBar()).to.be.null
+    })
   })
 });
