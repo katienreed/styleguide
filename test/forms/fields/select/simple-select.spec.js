@@ -242,6 +242,23 @@ describe('SimpleSelect', () => {
 
     });
 
+    describe('clicking on an option that has already been selected', () => {
+
+      let simple_select, options;
+
+      beforeEach(() => {
+        simple_select = TestUtils.renderIntoDocument(<SimpleSelect multiple={true} options={['foo','bar','baz']} value={['foo']}/>);
+        simple_select.setState({show_options: true});
+        options = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'simple-select-option');
+        TestUtils.Simulate.click(options[0]);
+      });
+
+      it('removes it from the value array', () => {
+        expect(simple_select.state.value.indexOf('foo')).to.equal(-1)
+      });
+
+    });
+
   });
 
 });
