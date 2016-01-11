@@ -259,6 +259,23 @@ describe('SimpleSelect', () => {
 
     });
 
+    describe('clicking on another option', () => {
+
+      let simple_select, options;
+
+      beforeEach(() => {
+        simple_select = TestUtils.renderIntoDocument(<SimpleSelect multiple={true} options={['foo','bar','baz']} value={['foo']}/>);
+        simple_select.setState({show_options: true});
+        options = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'simple-select-option');
+        TestUtils.Simulate.click(options[1]);
+      });
+
+      it('adds that option to the array', () => {
+        expect(simple_select.state.value.length).to.equal(2);
+      });
+
+    })
+
   });
 
 });
