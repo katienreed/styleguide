@@ -218,7 +218,7 @@ describe('SimpleSelect', () => {
     expect(simple_select.state.value).to.be.null
   });
 
-  describe('setting multiple prop to true', () => {
+  describe('setting the multiple prop to true', () => {
 
     describe('selecting one option', () => {
 
@@ -235,8 +235,9 @@ describe('SimpleSelect', () => {
         expect(simple_select.state.show_options).to.be.true;
       });
 
-      it('sets the value to an array with one item', () => {
+      it('sets the value to an array with one item equal to the selected value', () => {
         expect(simple_select.state.value.length).to.equal(1);
+        expect(simple_select.state.value[0]).to.equal('foo');
       });
 
     });
