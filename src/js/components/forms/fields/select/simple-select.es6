@@ -58,7 +58,13 @@ export default React.createClass({
   },
 
   buildValueArray(value) {
-    return [value];
+    let array = this.state.value ? this.state.value.slice(0) : [];
+    let index = array.indexOf(value);
+
+    // if the value is already in the array, and vice versa (toggling)
+    index > -1 ? array.splice(index, 1) : array.push(value)
+
+    return array;
   },
 
   onClickOption(option) {
