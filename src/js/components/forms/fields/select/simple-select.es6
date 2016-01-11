@@ -57,9 +57,13 @@ export default React.createClass({
     return classes.join(' ');
   },
 
+  buildValueArray(value) {
+    return [value];
+  },
+
   onClickOption(option) {
 
-    let value = this.props.multiple ? [option] : option;
+    let value = this.props.multiple ? this.buildValueArray(option) : option;
 
     this.setState({
       value: value,
