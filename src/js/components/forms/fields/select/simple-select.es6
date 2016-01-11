@@ -58,8 +58,11 @@ export default React.createClass({
   },
 
   onClickOption(option) {
+
+    let value = this.props.multiple ? [option] : option;
+
     this.setState({
-      value: option,
+      value: value,
       show_options: this.props.multiple
     });
   },

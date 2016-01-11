@@ -235,8 +235,8 @@ describe('SimpleSelect', () => {
         expect(simple_select.state.show_options).to.be.true;
       });
 
-      it('sets the value to an array with one item equal to the selected option', () => {
-        expect(simple_select.state.value).to.equal(['foo']);
+      it('sets the value to an array with one item', () => {
+        expect(simple_select.state.value.length).to.equal(1);
       });
 
     });
