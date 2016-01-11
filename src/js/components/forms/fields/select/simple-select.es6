@@ -10,6 +10,7 @@ export default React.createClass({
 
   propTypes: {
     disabled: Type.bool,
+    multiple: Type.bool,
     fieldColor: Type.oneOf(['light', 'dark']),
     hasError: Type.bool,
     includeBlank: Type.bool,
@@ -24,6 +25,7 @@ export default React.createClass({
     return {
       fieldColor: 'light',
       hasError: false,
+      multiple: false,
       onChange: function() {},
       options: []
     };
@@ -58,7 +60,7 @@ export default React.createClass({
   onClickOption(option) {
     this.setState({
       value: option,
-      show_options: false
+      show_options: this.props.multiple
     });
   },
 
