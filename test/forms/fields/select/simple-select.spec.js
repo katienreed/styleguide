@@ -225,7 +225,7 @@ describe('SimpleSelect', () => {
       let simple_select, options;
 
       beforeEach(() => {
-        simple_select = TestUtils.renderIntoDocument(<SimpleSelect multiple={true} options={['foo','bar','baz']} value={'foo'}/>);
+        simple_select = TestUtils.renderIntoDocument(<SimpleSelect multiple={true} options={['foo','bar','baz']} />);
         simple_select.setState({show_options: true});
         options = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'simple-select-option');
         TestUtils.Simulate.click(options[0]);
