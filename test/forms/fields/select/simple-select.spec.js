@@ -218,4 +218,14 @@ describe('SimpleSelect', () => {
     expect(simple_select.state.value).to.be.null
   });
 
+  describe('setting multiple prop to true', () => {
+    it('keeps options open after one option has been selected', () => {
+      let simple_select = TestUtils.renderIntoDocument(<SimpleSelect multiple={true} options={['foo','bar','baz']} value={'foo'}/>)
+      simple_select.setState({show_options: true})
+      let options = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'simple-select-option');
+      TestUtils.Simulate.click(options[0]);
+      expect(simple_select.state.show_options).to.be.true;
+    });
+  });
+
 });
