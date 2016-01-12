@@ -255,6 +255,20 @@ export default React.createClass({
               placeholder="- Select -"/>
             <p className='py2'>selected value: {this.state.simpleSelect5Value}</p>
           </div>
+
+          <div className="mb3">
+            <h3>Multiple values</h3>
+            <SelectField
+              onChange={this.onSimpleSelect6Change}
+              multiple={true}
+              value={this.state.simpleSelect6Value}
+              name='city'
+              ref='simpleSelect5'
+              options={simpleSelectOptions1}
+              placeholder="- Select -"/>
+            <p className='py2'>selected value: {this.state.simpleSelect6Value}</p>
+          </div>
+
         </div>
 
         <div title="Actionable Forms">
