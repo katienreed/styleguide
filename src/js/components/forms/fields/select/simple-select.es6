@@ -150,8 +150,8 @@ export default React.createClass({
   // options in a multiple select have a checkbox
   renderCheckbox(option) {
     // if option has been selected, show check.  otherwise, show empty space
-    let todo = _.indexOf(this.state.value, option) > -1 ? <div>Y</div> : <div>N</div>;
-    return <span>-TODO-</span>
+    let todo = _.indexOf(this.state.value, option) > -1 ? <span className="icon-check blue-70 mr1"></span> : <span className="px1 ml1"></span>;
+    return <span>{todo}</span>
   },
 
   renderOptionsFromArray() {
