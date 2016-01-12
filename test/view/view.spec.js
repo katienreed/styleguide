@@ -24,4 +24,22 @@ describe('View', () => {
     })
 
   })
+
+  describe('ActionBar', () => {
+    describe('#title()', () => {
+      it('renders the prop title',() => {
+        let component = TestUtils.renderIntoDocument(<ActionBar title={'Test Title'} />)
+        let elem = TestUtils.scryRenderedDOMComponentsWithTag(component, 'h3')
+        expect(elem.length).to.equal(1)
+      })
+    })
+
+    describe('#description()', () => {
+      it('renders the prop description',() => {
+        let component = TestUtils.renderIntoDocument(<ActionBar description={'Test Description'} />)
+        let elem = TestUtils.scryRenderedDOMComponentsWithClass(component, 'flex-auto right-align')
+        expect(elem.length).to.equal(1)
+        })
+    })
+  })
 });
