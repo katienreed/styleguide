@@ -99,6 +99,13 @@ export default React.createClass({
     return (typeof options === 'object' && Array.isArray(options)) ? options : false;
   },
 
+  // for each option element
+  optionClasses() {
+    let classes = ['simple-select-option','bg-white','nowrap','option','pointer','py1','px3'];
+    return classes;
+  },
+
+  // for the container element that holds the options
   optionsClasses() {
     let classes = ['absolute', 'bb', 'bl', 'br', 'bw-1', 'left-0', 'right-0', 'rounded-bottom-2'];
     classes.push(this.state.show_options ? 'bc-grey-50' : 'bc-grey-25');
@@ -112,23 +119,24 @@ export default React.createClass({
 
   renderOptions() {
     if (!this.props.disabled) {
-      let optionClasses = 'simple-select-option bg-white nowrap option pointer py1 px3';
 
       let emptyOption = (
-        <div className={optionClasses+" grey-50"} onClick={this.onClickOptionEmpty}>
+        <div className={this.optionClasses().join(' ') + " grey-50"} onClick={this.onClickOptionEmpty}>
           {this.props.placeholder ? this.props.placeholder : "--"}
         </div>
       );
 
+      let options;
+
       if (this.optionsObject()) {
-        var options = this.renderOptionsFromObject(optionClasses);
+        options = this.renderOptionsFromObject();
       } else {
-        var options = this.renderOptionsFromArray(optionClasses)
+        options = this.renderOptionsFromArray()
       }
 
       if (this.state.show_options) {
         return (
-          <div className={this.optionsClasses()} style={{zIndex: 1000}}>
+          <div className={this.optionsClasses().join(' ')} style={{zIndex: 1000}}>
             {this.props.includeBlank ? emptyOption : false}
             {options}
           </div>
@@ -139,10 +147,14 @@ export default React.createClass({
     }
   },
 
-  renderOptionsFromArray(classes) {
+  renderOptionsFromArray() {
     return this.props.options.map((option, index) => {
+
+      let classes = this.optionClasses();
+      _.indexOf(this.state.value, option) > -1 ? classes.push('selected') : false;
+
       return (
-        <div className={classes + ' grey-75'}
+        <div className={classes.join(' ') + ' grey-75'}
              key={index}
              onClick={this.onClickOption.bind(this, option)}>
           {option}
@@ -151,7 +163,8 @@ export default React.createClass({
     });
   },
 
-  renderOptionsFromObject(classes) {
+  renderOptionsFromObject() {
+    let classes = this.optionClasses().join(' ');
     return Object.keys(this.props.options).map((key, index) => {
       return (
         <div className={classes + ' grey-75'}
