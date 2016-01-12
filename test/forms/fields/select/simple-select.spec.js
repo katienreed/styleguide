@@ -240,6 +240,11 @@ describe('SimpleSelect', () => {
         expect(simple_select.state.value[0]).to.equal('foo');
       });
 
+      it('adds the selected class to the selected option', () => {
+        let selected = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'selected');
+        expect(selected.length).to.equal(1)
+      });
+
     });
 
     describe('clicking on an option that has already been selected', () => {
