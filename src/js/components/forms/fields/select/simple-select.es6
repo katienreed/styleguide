@@ -147,6 +147,13 @@ export default React.createClass({
     }
   },
 
+  // options in a multiple select have a checkbox
+  renderCheckbox(option) {
+    // if option has been selected, show check.  otherwise, show empty space
+    let todo = _.indexOf(this.state.value, option) > -1 ? <div>Y</div> : <div>N</div>;
+    return <span>-TODO-</span>
+  },
+
   renderOptionsFromArray() {
     return this.props.options.map((option, index) => {
 
@@ -157,6 +164,7 @@ export default React.createClass({
         <div className={classes.join(' ') + ' grey-75'}
              key={index}
              onClick={this.onClickOption.bind(this, option)}>
+          {this.props.multiple ? this.renderCheckbox(option) : false}
           {option}
         </div>
       );
@@ -179,6 +187,9 @@ export default React.createClass({
   renderValue() {
     let value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
     let arrowStyle = {top: 1, right: 3, fontSize: '12px', height: '19px'};
+
+    console.log('---');
+    console.log(this.state.value);
 
     return (
       <div ref='simpleSelectValue' className={this.valueClasses()} onClick={this.onClickValue}>
