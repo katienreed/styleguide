@@ -102,7 +102,7 @@ export default React.createClass({
   optionsClasses() {
     let classes = ['absolute', 'bb', 'bl', 'br', 'bw-1', 'left-0', 'right-0', 'rounded-bottom-2'];
     classes.push(this.state.show_options ? 'bc-grey-50' : 'bc-grey-25');
-    return classes.join(' ');
+    return classes;
   },
 
   optionsObject() {
