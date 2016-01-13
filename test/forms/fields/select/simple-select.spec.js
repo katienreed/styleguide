@@ -182,6 +182,41 @@ describe('SimpleSelect', () => {
     });
   });
 
+  describe('the multipleToggleAll prop', () => {
+
+    describe('set to true', () => {
+
+      it('renders an option to toggle all', () => {
+        let simple_select = TestUtils.renderIntoDocument( <SimpleSelect multiple={true} multipleToggleAll={true} options={['foo','bar','baz']} value={['foo','bar']} />)
+        simple_select.setState({show_options: true});
+        let toggleAll = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'toggle-all');
+        expect(toggleAll.length).to.equal(1);
+      });
+
+    });
+
+  });
+
+  describe('clicking the toggle all option', () => {
+
+    it('sets the value to all options if not all options are currently selected', () => {
+      let simple_select = TestUtils.renderIntoDocument( <SimpleSelect multiple={true} multipleToggleAll={true} options={['foo','bar','baz']} value={['foo','bar']} />)
+      simple_select.setState({show_options: true});
+      let toggleAll = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'toggle-all');
+      TestUtils.Simulate.click(toggleAll[0])
+      expect(simple_select.state.value.length).to.equal(3);
+    });
+
+    it('sets the value to an empty array if all options are currently selected', () => {
+      let simple_select = TestUtils.renderIntoDocument( <SimpleSelect multiple={true} multipleToggleAll={true} options={['foo','bar','baz']} value={['foo','bar','baz']} />)
+      simple_select.setState({show_options: true});
+      let toggleAll = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'toggle-all');
+      TestUtils.Simulate.click(toggleAll[0])
+      expect(simple_select.state.value.length).to.equal(0);
+    });
+
+  });
+
   it('expects one option element for each option given in an options array', () => {
     let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={['one','two']}/>)
     simple_select.setState({show_options: true})
