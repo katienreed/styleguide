@@ -11,6 +11,7 @@ export default React.createClass({
   propTypes: {
     disabled: Type.bool,
     multiple: Type.bool,
+    multipleToggleAll: Type.bool,
     fieldColor: Type.oneOf(['light', 'dark']),
     hasError: Type.bool,
     includeBlank: Type.bool,
@@ -94,6 +95,21 @@ export default React.createClass({
     if (!this.props.disabled) this.setState({show_options: !this.state.show_options});
   },
 
+  onClickToggleAll() {
+
+    let value = this.state.value || [];
+    let options = this.props.options;
+
+    if(options.length - value.length > 0) {
+      // if not all options are selected, toggle on
+      this.setState({value: this.props.options})
+    } else {
+      // otherwise, toggle off
+      this.setState({value: []});
+    }
+
+  },
+
   optionsArray() {
     let options = this.props.options;
     return (typeof options === 'object' && Array.isArray(options)) ? options : false;
@@ -126,6 +142,12 @@ export default React.createClass({
         </div>
       );
 
+      let toggleAllOption = (
+        <div className={this.optionClasses().concat('toggle-all').join(' ') + " grey-50 " + " "} onClick={this.onClickToggleAll}>
+          <span>Select All</span>
+        </div>
+      );
+
       let options;
 
       if (this.optionsObject()) {
@@ -138,6 +160,7 @@ export default React.createClass({
         return (
           <div className={this.optionsClasses().join(' ')} style={{zIndex: 1000}}>
             {this.props.includeBlank ? emptyOption : false}
+            {this.props.multipleToggleAll ? toggleAllOption : false}
             {options}
           </div>
         );
