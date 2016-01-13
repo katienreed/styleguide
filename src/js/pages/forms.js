@@ -56,24 +56,23 @@ export default React.createClass({
   },
 
   onSimpleSelect1Change() {
-    console.log(this.refs);
-    this.setState({simpleSelect1Value: this.refs.simpleSelect1.state.value})
+    this.setState({simpleSelect1Value: this.refs.simpleSelect1.refs.simpleSelect.state.value})
   },
 
   onSimpleSelect2Change() {
-    this.setState({simpleSelect2Value: this.refs.simpleSelect2.state.value})
+    this.setState({simpleSelect2Value: this.refs.simpleSelect2.refs.simpleSelect.state.value})
   },
 
   onSimpleSelect3Change() {
-    this.setState({simpleSelect3Value: this.refs.simpleSelect3.state.value})
+    this.setState({simpleSelect3Value: this.refs.simpleSelect3.refs.simpleSelect.state.value})
   },
 
   onSimpleSelect4Change() {
-    this.setState({simpleSelect4Value: this.refs.simpleSelect4.state.value})
+    this.setState({simpleSelect4Value: this.refs.simpleSelect4.refs.simpleSelect.state.value})
   },
 
   onSimpleSelect5Change() {
-    this.setState({simpleSelect5Value: this.refs.simpleSelect5.state.value})
+    this.setState({simpleSelect5Value: this.refs.simpleSelect5.refs.simpleSelect.state.value})
   },
 
   _onSave(value) {
