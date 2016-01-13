@@ -195,7 +195,7 @@ export default React.createClass({
   },
 
   renderValue() {
-    let arrowStyle = {top: 1, right: 3, fontSize: '12px', height: '19px'};
+    let arrowStyle = {top: 1, right: 3, fontSize: 12, height: 19};
 
     return (
       <div ref='simpleSelectValue' className={this.valueClasses()} onClick={this.onClickValue}>
