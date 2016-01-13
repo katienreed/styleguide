@@ -184,17 +184,23 @@ export default React.createClass({
     });
   },
 
-  renderValue() {
+  // since we might have several value (like in a multiple select),
+  // a function will help
+  valueToString() {
     let value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
-    let arrowStyle = {top: 1, right: 3, fontSize: '12px', height: '19px'};
+    if(this.props.multiple && value) {
+      value = value.join(', ')
+    }
+    return value || this.props.placeholder;
+  },
 
-    console.log('---');
-    console.log(this.state.value);
+  renderValue() {
+    let arrowStyle = {top: 1, right: 3, fontSize: '12px', height: '19px'};
 
     return (
       <div ref='simpleSelectValue' className={this.valueClasses()} onClick={this.onClickValue}>
         <div className='nowrap mr1'>
-          {value ? value : this.props.placeholder}
+          {this.valueToString()}
         </div>
         <div className={this.arrowClasses()} style={arrowStyle} />
       </div>
