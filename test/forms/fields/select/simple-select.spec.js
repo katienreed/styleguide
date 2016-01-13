@@ -175,6 +175,13 @@ describe('SimpleSelect', () => {
 
   });
 
+  describe('#valueToString()', () => {
+    it('returns a comma separated list of values for multiple select', () => {
+      let simple_select = TestUtils.renderIntoDocument(<SimpleSelect multiple={true} value={['foo','bar']} />)
+      expect(simple_select.valueToString()).to.equal('foo, bar');
+    });
+  });
+
   it('expects one option element for each option given in an options array', () => {
     let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={['one','two']}/>)
     simple_select.setState({show_options: true})
