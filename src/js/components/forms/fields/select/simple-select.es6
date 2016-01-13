@@ -172,9 +172,15 @@ export default React.createClass({
 
   // options in a multiple select have a checkbox
   renderCheckbox(option) {
+    let checkmarkSpacing = {width: 30, float: 'left'};
+
     // if option has been selected, show check.  otherwise, show empty space
     let todo = _.indexOf(this.state.value, option) > -1 ? <span className="icon-check blue-70 mr1"></span> : <span className="px1 ml1"></span>;
-    return <span>{todo}</span>
+    return (
+      <div style={checkmarkSpacing}>
+        <span>{todo}</span>
+      </div>
+    );
   },
 
   renderOptionsFromArray() {
