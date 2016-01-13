@@ -261,6 +261,7 @@ export default React.createClass({
             <SelectField
               onChange={this.onSimpleSelect6Change}
               multiple={true}
+              multipleToggleAll={true}
               value={this.state.simpleSelect6Value}
               name='city'
               ref='simpleSelect5'

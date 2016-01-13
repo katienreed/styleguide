@@ -11,6 +11,7 @@ export default React.createClass({
   propTypes: {
     disabled: Type.bool,
     multiple: Type.bool,
+    multipleToggleAll: Type.bool,
     errors: Type.array,
     extraClasses: Type.array,
     fieldColor: Type.oneOf(['light', 'dark']),
@@ -71,6 +72,7 @@ export default React.createClass({
         {this.label()}
         <SimpleSelect disabled={this.props.disabled}
                       multiple={this.props.multiple}
+                      multipleToggleAll={this.props.multipleToggleAll}
                       fieldColor={this.props.fieldColor}
                       hasError={this.state.errors.length > 0}
                       includeBlank={this.props.includeBlank}
